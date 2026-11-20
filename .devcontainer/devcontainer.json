@@ -1,0 +1,27 @@
+{
+  "name": "Megurume Dev Container",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "backend",
+  "runServices": ["backend", "frontend", "db"],
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "portsAttributes": {
+    "5173": { "label": "Vue frontend", "onAutoForward": "ignore" },
+    "8000": { "label": "Laravel API", "onAutoForward": "ignore" }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
+  },
+  "postCreateCommand": "bash /workspace/.devcontainer/post-create.sh",
+  "postStartCommand": "bash /workspace/.devcontainer/start-app.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "bmewburn.vscode-intelephense-client"
+      ]
+    }
+  }
+}
