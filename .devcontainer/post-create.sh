@@ -35,18 +35,7 @@ set_env DB_DATABASE megourmet
 set_env DB_USERNAME app
 set_env DB_PASSWORD app
 
-if [ ! -f routes/api.php ]; then
-  php artisan install:api --no-interaction
-fi
-
-if ! grep -q "'/health'" routes/api.php; then
-  cat >> routes/api.php <<'PHP'
-
-Route::get('/health', fn () => response()->json(['ok' => true]));
-PHP
-fi
-
 php artisan key:generate --force
 
-echo "セットアップ完了。フロントエンドは http://localhost:5173 で開きます。"
+echo "セットアップ完了。Laravelは http://localhost:8000 で開きます。"
 

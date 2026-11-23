@@ -2,12 +2,11 @@
   "name": "Megurume Dev Container",
   "dockerComposeFile": "../compose.yaml",
   "service": "backend",
-  "runServices": ["backend", "frontend", "db"],
+  "runServices": ["backend", "db"],
   "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "portsAttributes": {
-    "5173": { "label": "Vue frontend", "onAutoForward": "ignore" },
-    "8000": { "label": "Laravel API", "onAutoForward": "ignore" }
+    "8000": { "label": "Laravel", "onAutoForward": "ignore" }
   },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
@@ -19,7 +18,6 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Vue.volar",
         "bmewburn.vscode-intelephense-client"
       ]
     }
